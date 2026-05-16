@@ -1,0 +1,33 @@
+import os
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+load_dotenv()
+
+genai.configure(
+    api_key=os.getenv("GEMINI_API_KEY")
+)
+
+model = genai.GenerativeModel("gemini-2.5-flash-lite")
+
+with open("app/data/faq.txt", "r", encoding="utf-8") as f:
+    faq_content = f.read()
+
+def ask_gemini(question: str):
+
+    prompt = f"""
+    Você é um assistente FAQ do Setor de atendimento ao cliente e tem objetivo de ajudar os funcionários que estão iniciando.
+
+    Responda apenas usando as informações abaixo, exclusivamente.
+    Seja curto e objetivo e caso não saiba a resposta, diga que não sabe e deve consultar o responsável do setor.
+
+    FAQ:
+    {faq_content}
+
+    Pergunta:
+    {question}
+    """
+
+    response = model.generate_content(prompt)
+
+    return response.text
