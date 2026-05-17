@@ -38,8 +38,7 @@ O sistema consiste em:
 3. Instalar dependências:
    pip install -r requirements.txt
 
-4. Criar arquivo .env:
-   Na raiz da pasta backend, crie um arquivo chamado .env e adicione a sua chave:
+4. Na raiz da pasta backend, crie um arquivo chamado .env e adicione a sua chave:
    GEMINI_API_KEY=sua_key_aqui
 
 5. Rodar o backend:
