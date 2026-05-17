@@ -16,10 +16,10 @@ with open("app/data/faq.txt", "r", encoding="utf-8") as f:
 def ask_gemini(question: str):
 
     prompt = f"""
-    Você é um assistente FAQ do Setor de atendimento ao cliente e tem objetivo de ajudar os funcionários que estão iniciando.
+    Você é um assistente FAQ e tem objetivo de responder as perguntas dos usuários usando as informações contidas na FAQ abaixo.
 
     Responda apenas usando as informações abaixo, exclusivamente.
-    Seja curto e objetivo, mas sempre responda a informação completa. Caso não saiba a resposta, diga que não sabe e deve consultar o responsável do setor.
+    Seja curto e objetivo, mas sempre responda a informação completa. Caso não saiba a resposta, diga que não sabe e que orienta procurar no Google.
 
     FAQ:
     {faq_content}
